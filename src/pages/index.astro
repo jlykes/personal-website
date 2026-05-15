@@ -1,0 +1,249 @@
+---
+import "../styles/global.css";
+
+const sections = [
+  {
+    id: "coding",
+    title: "Agentic Coding",
+    intro:
+      "Software built for my own use with agentic coding tools like Codex and Cursor, filling the gaps where off-the-shelf tools fall short.",
+    cards: [
+      {
+        title: "Dushu",
+        subtitle: "An e-reader for Chinese",
+        summary: "A Kindle-like app for Chinese language learners. Includes pop-up definitions, display of learning status for words, and flashcard creation.",
+      },
+      {
+        title: "Plex Metalayer",
+        subtitle: "A subtitle overlay for Chinese videos in Plex Media Player",
+        summary: "Turns Chinese subtitles into an interactive language-learning layer with pop-up definitions, learning status for each word, and flashcard creation.",
+      },
+      {
+        title: "History Atlas",
+        subtitle: "An interactive timeline for historical events",
+        summary: "A web app for plotting historical events. Also shows when people lived, who ruled when, and how periods overlap.",
+      },
+    ],
+  },
+  {
+    id: "languages",
+    title: "Language Learning",
+    intro:
+      "A catalog of my language learning progress, including the methods I’m using, my current level, and the goals I’m working toward.",
+    cards: [
+      {
+        title: "Chinese",
+        subtitle: "My main language learning effort right now",
+        summary: "Actively spending 1-2 hours a day, mostly focused on understanding through input. Less emphasis on speaking for now, but I plan to shift there as comprehension grows.",
+        image: "/images/chinese-language.png",
+        imageAlt: "Chinese flag on a black flagpole against a dark background",
+      },
+      {
+        title: "Spanish",
+        subtitle: "The first language I learned seriously",
+        summary: "The main language I learned in school. I can speak and understand basic Spanish, but don’t use it often anymore. Still occasionally watch Spanish-language YouTube or TV.",
+        image: "/images/spanish-language.png",
+        imageAlt: "Mexican flag on a black flagpole against a dark background",
+      },
+      {
+        title: "Turkish",
+        subtitle: "The second language I learned seriously",
+        summary: "A language I started while studying abroad in college, then kept learning on my own for a few years. It is the rustiest of the three because I rarely use it now.",
+        image: "/images/turkish-language.png",
+        imageAlt: "Turkish flag on a black flagpole against a dark background",
+      },
+    ],
+  },
+  {
+    id: "video",
+    title: "Video",
+    intro:
+      "Videos I make on a variety of topics such as language learning and AI. Plus early experiments in fully AI-generated video.",
+    cards: [
+      {
+        title: "YouTube Channel",
+        subtitle: "The home for all of my video projects",
+        summary: "Videos on a wide variety of topics, including language learning, AI, entertainment and media, and personal development.",
+        image: "/images/youtube-channel.png",
+        imageAlt: "Minimal dark play-button icon for the YouTube channel",
+      },
+      {
+        title: "The Boy Without a Fairy",
+        subtitle: "An AI video based on The Legend of Zelda: Ocarina of Time",
+        summary: "Built shot by shot using AI video tools, covering the first portion of the game. I’m approximately halfway through the project.",
+        image: "/images/boy-without-a-fairy.png",
+        imageAlt: "Young hero in green standing with a glowing fairy against a dark background",
+      },
+      {
+        title: "A Long-Expected Party",
+        subtitle: "An AI video based on The Fellowship of the Ring",
+        summary: "Adapting the first Lord of the Rings book one chapter at a time in learner-friendly Chinese. I do the narration myself as speaking practice.",
+        image: "/images/long-expected-party.png",
+        imageAlt: "Bilbo and Frodo sitting at a wooden table with dinner and candlelight",
+      },
+    ],
+  },
+  {
+    id: "systems",
+    title: "Other Projects",
+    intro:
+      "A few additional projects and systems that do not fit neatly into the coding, language learning, or video sections.",
+    cards: [
+      {
+        title: "My Second Brain",
+        subtitle: "A Codex-assisted knowledge base",
+        summary: "A repository where I collect raw text from videos, books, articles, and other media I consume. I use it to draw insights across everything I’m taking in.",
+        image: "/images/second-brain.png",
+        imageAlt: "Minimal dark brain-shaped library filled with books and notes",
+      },
+    ],
+  },
+];
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+    <meta
+      name="description"
+      content="A personal overview of agentic coding projects, language learning, AI video projects, publishing, and research systems."
+    />
+    <title>Joshua Lykes | Personal Overview</title>
+  </head>
+  <body>
+    <div class="page">
+      <header class="topbar">
+        <nav class="nav" aria-label="Page sections">
+          <a href="#coding">Agentic Coding</a>
+          <a href="#languages">Language Learning</a>
+          <a href="#video">Video</a>
+          <a href="#systems">Other Projects</a>
+        </nav>
+      </header>
+
+      <main>
+        <section class="hero" aria-labelledby="page-title">
+          <div class="hero-media">
+            <img
+              class="hero-image"
+              src="/images/hero-portrait.jpg"
+              alt="Joshua Lykes in a dark creative studio workspace"
+            />
+            <div class="hero-overlay">
+              <h1 id="page-title">
+                <span>Joshua</span>
+                <span>Lykes</span>
+              </h1>
+              <p>
+                This is where I catalog the big things I’m currently working on, including agentic
+                coding projects, language learning, and video production.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {sections.map((section) => (
+          <section class="section" id={section.id} aria-labelledby={`${section.id}-title`}>
+            <div class="section-header">
+              <h2 id={`${section.id}-title`}>{section.title}</h2>
+              <p>{section.intro}</p>
+            </div>
+
+            <div class={`card-row ${section.cards.length > 2 ? "has-carousel" : ""}`}>
+              {section.cards.length > 2 && (
+                <button class="carousel-button prev" type="button" aria-label={`Show previous ${section.title} card`} data-carousel-prev disabled>
+                  <span aria-hidden="true">&lsaquo;</span>
+                </button>
+              )}
+
+              <div class={`card-grid ${section.cards.length > 2 ? "carousel-track" : ""} ${section.cards.length === 1 ? "single" : ""}`}>
+                {section.cards.map((card) => (
+                  <a class="project-card" href="#" aria-label={`${card.title} deep dive placeholder`}>
+                    <div class="thumb">
+                      {card.image ? (
+                        <img class="card-image" src={card.image} alt={card.imageAlt ?? ""} />
+                      ) : (
+                        <div class="thumb-label">Image placeholder</div>
+                      )}
+                    </div>
+                    <div class="card-body">
+                      <h3>{card.title}</h3>
+                      <p class="card-subtitle">{card.subtitle}</p>
+                      <p>{card.summary}</p>
+                    </div>
+                  </a>
+                ))}
+              </div>
+
+              {section.cards.length > 2 && (
+                <button class="carousel-button next" type="button" aria-label={`Show next ${section.title} card`} data-carousel-next>
+                  <span aria-hidden="true">&rsaquo;</span>
+                </button>
+              )}
+            </div>
+          </section>
+        ))}
+      </main>
+    </div>
+    <script>
+      const rows = document.querySelectorAll(".card-row.has-carousel");
+
+      rows.forEach((row) => {
+        const track = row.querySelector(".carousel-track");
+        const previousButton = row.querySelector("[data-carousel-prev]");
+        const nextButton = row.querySelector("[data-carousel-next]");
+
+        if (!(track instanceof HTMLElement) || !(previousButton instanceof HTMLButtonElement) || !(nextButton instanceof HTMLButtonElement)) {
+          return;
+        }
+
+        const getStep = () => {
+          const firstCard = track.querySelector(".project-card");
+          if (!(firstCard instanceof HTMLElement)) {
+            return track.clientWidth;
+          }
+
+          const styles = window.getComputedStyle(track);
+          const gap = Number.parseFloat(styles.columnGap || styles.gap || "0");
+          return firstCard.offsetWidth + gap;
+        };
+
+        const updateButtons = () => {
+          const styles = window.getComputedStyle(track);
+          const startThreshold = Number.parseFloat(styles.paddingInlineStart || "0") + 2;
+          const endThreshold = Number.parseFloat(styles.paddingInlineEnd || "0") + 2;
+          const maxScroll = Math.max(0, track.scrollWidth - track.clientWidth);
+
+          previousButton.disabled = track.scrollLeft <= startThreshold;
+          nextButton.disabled = track.scrollLeft >= maxScroll - endThreshold;
+        };
+
+        const resetTrack = () => {
+          track.scrollLeft = 0;
+          updateButtons();
+        };
+
+        previousButton.addEventListener("click", () => {
+          track.scrollBy({ left: -getStep(), behavior: "smooth" });
+        });
+
+        nextButton.addEventListener("click", () => {
+          track.scrollBy({ left: getStep(), behavior: "smooth" });
+        });
+
+        track.addEventListener("scroll", updateButtons, { passive: true });
+        window.addEventListener("resize", updateButtons);
+        window.addEventListener("load", resetTrack, { once: true });
+        requestAnimationFrame(() => {
+          resetTrack();
+          requestAnimationFrame(resetTrack);
+        });
+      });
+    </script>
+  </body>
+</html>
