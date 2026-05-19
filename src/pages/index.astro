@@ -4,9 +4,9 @@ import "../styles/global.css";
 const sections = [
   {
     id: "coding",
-    title: "Agentic Coding",
+    title: "Agentic Software Development",
     intro:
-      "Software built for my own use with agentic coding tools like Codex and Cursor, filling the gaps where off-the-shelf tools fall short.",
+      "Software built for my own use with agentic software development tools like Codex and Cursor, filling the gaps where off-the-shelf tools fall short.",
     cards: [
       {
         title: "Dushu",
@@ -14,6 +14,7 @@ const sections = [
         summary: "A Kindle-like app for Chinese language learners. Includes pop-up definitions, display of learning status for words, and flashcard creation.",
         image: "/images/dushu.png",
         imageAlt: "Tablet showing a dark-mode Chinese reading interface with vocabulary annotations",
+        href: "/dushu",
       },
       {
         title: "Plex Metalayer",
@@ -93,7 +94,7 @@ const sections = [
     id: "systems",
     title: "Other Projects",
     intro:
-      "A few additional projects and systems that do not fit neatly into the coding, language learning, or video sections.",
+      "A few additional projects and systems that do not fit neatly into the software development, language learning, or video sections.",
     cards: [
       {
         title: "My Second Brain",
@@ -117,7 +118,7 @@ const sections = [
     <meta name="generator" content={Astro.generator} />
     <meta
       name="description"
-      content="A personal overview of agentic coding projects, language learning, AI video projects, publishing, and research systems."
+      content="A personal overview of agentic software development, language learning, AI video projects, publishing, and research systems."
     />
     <title>Joshua Lykes | Personal Overview</title>
   </head>
@@ -125,7 +126,7 @@ const sections = [
     <div class="page">
       <header class="topbar">
         <nav class="nav" aria-label="Page sections">
-          <a href="#coding">Agentic Coding</a>
+          <a href="#coding">Agentic Software Development</a>
           <a href="#languages">Language Learning</a>
           <a href="#video">Video</a>
           <a href="#systems">Other Projects</a>
@@ -147,7 +148,7 @@ const sections = [
               </h1>
               <p>
                 This is where I catalog the big things I’m currently working on, including agentic
-                coding projects, language learning, and video production.
+                software development, language learning, and video production.
               </p>
             </div>
           </div>
@@ -169,7 +170,7 @@ const sections = [
 
               <div class={`card-grid ${section.cards.length > 2 ? "carousel-track" : ""} ${section.cards.length === 1 ? "single" : ""}`}>
                 {section.cards.map((card) => (
-                  <a class="project-card" href="#" aria-label={`${card.title} deep dive placeholder`}>
+                  <a class="project-card" href={card.href ?? "#"} aria-label={`${card.title} deep dive`}>
                     <div class="thumb">
                       {card.image ? (
                         <img class="card-image" src={card.image} alt={card.imageAlt ?? ""} />

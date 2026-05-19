@@ -1,0 +1,191 @@
+---
+import "../styles/global.css";
+
+const featureSections = [
+  {
+    title: "Library View",
+    placeholder: "Dushu library view with books, texts, and notes",
+    body:
+      "The library is the starting point for books, imported texts, and notes. It gives me a place to browse what I am reading, track progress, and manage different kinds of Chinese content in one place.",
+  },
+  {
+    title: "Books View",
+    placeholder: "Main reader view for books",
+    body:
+      "The reader is the core of the app. It is built to feel closer to a normal long-form reading experience than a lesson screen. It supports paginated Chinese reading, saved reading position, chapter navigation, sentence-level progress tracking, display of pinyin and/or colors for tones, and different colored underlines to keep track of how well I know a given word.",
+  },
+  {
+    title: "Notes View",
+    placeholder: "Main reader view for notes with Markdown formatting",
+    body:
+      "I have one interface for books, and one interface for other general notes and texts. The notes interface supports Markdown formatting, so generated Chinese notes from my Second Brain can become part of the same reading workflow.",
+  },
+  {
+    title: "Word And Sentence Popups",
+    placeholder: "Word popup and sentence popup",
+    body:
+      "When I click a word, Dushu shows the information I usually need in the moment: pinyin, a definition of that word in context, a score for how frequently the word appears, and the ability to score each word from 0 to 5 based on how well I know it. When I click a sentence, I can also see a translation, as well as an explanation for any tough grammar or anything else that would trip up a language learner.",
+  },
+  {
+    title: "Flashcards",
+    placeholder: "Sentence mining or Anki card creation drawer",
+    body:
+      "From the reading interface, I can create Anki flashcards both for learning new characters as well as new words. This makes flashcard creation feel like a byproduct of reading rather than a separate workflow that I have to remember to do later.",
+  },
+];
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+    <meta
+      name="description"
+      content="Dushu is a Kindle-like app for Chinese language learners, built for long-form reading, vocabulary support, flashcards, and progress tracking."
+    />
+    <title>Dushu | Joshua Lykes</title>
+  </head>
+  <body>
+    <div class="page detail-page">
+      <header class="topbar">
+        <a class="home-link" href="/" aria-label="Home">
+          <svg aria-hidden="true" viewBox="0 0 24 24">
+            <path d="M3 10.5 12 3l9 7.5" />
+            <path d="M5.5 9.5V21h13V9.5" />
+            <path d="M9.5 21v-7h5v7" />
+          </svg>
+        </a>
+        <nav class="nav" aria-label="Project navigation">
+          <a href="https://youtu.be/bvZcCDngIQw?si=mfpLM4OGVZgkz5kV">Video overview</a>
+        </nav>
+      </header>
+
+      <main>
+        <section class="detail-hero" aria-labelledby="page-title">
+          <div class="detail-hero-copy">
+            <p class="detail-kicker">Agentic Software Development / Chinese Learning</p>
+            <h1 id="page-title">Dushu</h1>
+            <p class="detail-subtitle">A Kindle-like app for Chinese language learners</p>
+            <p class="detail-lede">
+              Dushu is my personal Chinese reading app. It gives me a calm long-form reading
+              surface while adding the language-learning layer I need: pop-up definitions, pinyin,
+              color representation for tones, vocabulary status, flashcard creation, and progress
+              tracking across books, imported texts, and generated notes.
+            </p>
+            <div class="detail-meta" aria-label="Project metadata">
+              <span>Cursor</span>
+              <span>Codex</span>
+              <span>React</span>
+              <span>Desktop and Mobile</span>
+            </div>
+          </div>
+
+          <div class="detail-hero-media">
+            <img
+              src="/images/dushu.png"
+              alt="Tablet showing a dark-mode Chinese reading interface with vocabulary annotations"
+            />
+          </div>
+        </section>
+
+        <section class="detail-section text-section" aria-labelledby="problem-title">
+          <h2 id="problem-title">The Problem</h2>
+          <div class="detail-prose">
+            <p>
+              Most tools pull Chinese reading in two opposite directions. E-readers are comfortable
+              for long-form reading, but they assume I already know the language. Language-learning
+              apps offer more support, but they often break reading into exercises or something else
+              that feels more academic and less fun.
+            </p>
+            <p>
+              Dushu sits in the middle. It is designed for reading real Chinese text while still
+              giving me enough help to keep going when I hit unknown words, confusing sentences, or
+              text that is just slightly above my current level.
+            </p>
+          </div>
+        </section>
+
+        <section class="detail-section" aria-labelledby="does-title">
+          <div class="section-header section-header-simple">
+            <h2 id="does-title">Functionality</h2>
+          </div>
+          <p class="section-note">
+            You can see a video describing the app and its functionality here:
+            <a href="https://youtu.be/bvZcCDngIQw?si=mfpLM4OGVZgkz5kV">Dushu video overview</a>.
+          </p>
+
+          <div class="feature-stack">
+            {featureSections.map((feature) => (
+              <article class="feature-block">
+                <div class="placeholder-image">
+                  <span>{feature.placeholder}</span>
+                </div>
+                <div class="feature-copy">
+                  <h3>{feature.title}</h3>
+                  <p>{feature.body}</p>
+                </div>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section class="detail-section built-section" aria-labelledby="built-title">
+          <div class="section-media-column">
+            <h2 id="built-title">How I Built It</h2>
+          </div>
+          <div class="detail-prose">
+            <p>
+              I started building Dushu in the summer of 2025 using agentic software development tools,
+              especially Cursor. The first push took a few months and got the app to roughly an 80
+              percent version of what I wanted: a working Chinese reader with enough vocabulary
+              support and progress tracking to become useful in my actual study routine.
+            </p>
+            <p>
+              After that first push, I spent the next six months or so making smaller updates
+              whenever a new piece of functionality became useful. The app grew less like a
+              finished product with a fixed roadmap and more like a personal tool that grew to fit
+              my exact preferences.
+            </p>
+            <p>
+              For the first four or five months, I was still reading and understanding the code as
+              it came together, even though AI was generating probably 90 percent or more of it.
+              As the tools improved, I became comfortable treating the codebase more as something I
+              could direct than something I needed to inspect line by line. At this point, for most
+              changes, I barely look at the code at all.
+            </p>
+            <p>
+              Technically, Dushu is a React 18, TypeScript, Vite, and Tailwind PWA with a
+              Node/Express proxy and Supabase-backed persistence. Books and notes are pre-processed
+              using AI to generate key information surfaced in the app, such as word definitions
+              defined in the context of the passage.
+            </p>
+            <div class="placeholder-image wide-placeholder">
+              <span>Technical diagram: reader -> vocabulary -> Anki / Notion / LingQ</span>
+            </div>
+          </div>
+        </section>
+
+        <section class="detail-section text-section" aria-labelledby="state-title">
+          <h2 id="state-title">Current State And Next Steps</h2>
+          <div class="detail-prose">
+            <p>
+              Dushu is active and I use it almost every day. It is probably around 90 percent of
+              what I currently want it to be. I expect to keep making small tweaks here and there.
+              The next major thing might be adding support for audio so that I can have a full
+              audiobook experience.
+            </p>
+            <p>
+              Right now, Dushu is mainly for my own individual use. I have also given access to one
+              friend. If you are interested in trying it, you can reach out to me directly and I can
+              most likely give you access for free.
+            </p>
+          </div>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>

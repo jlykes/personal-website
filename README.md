@@ -1,6 +1,6 @@
 # Personal Website
 
-Astro site for a simple dark-mode personal overview: agentic coding projects, language learning, AI video projects, publishing, and research systems.
+Astro site for a simple dark-mode personal overview: agentic software development, language learning, AI video projects, publishing, and research systems.
 
 Planning source:
 
@@ -12,7 +12,7 @@ Planning source:
 - Dark minimalist layout inspired by the third mockup concept.
 - Top hero with portrait placeholder.
 - Four homepage sections:
-  - Agentic Coding Projects
+  - Agentic Software Development
   - Language Learning
   - AI Video Projects
   - Publishing & Research Systems
