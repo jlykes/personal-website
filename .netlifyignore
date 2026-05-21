@@ -3,3 +3,4 @@ dist
 .astro
 .git
 .DS_Store
+**/*.psd

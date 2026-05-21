@@ -20,6 +20,11 @@ pnpm-debug.log*
 # macOS-specific files
 .DS_Store
 
+# local editing/source files
+.obsidian/
+design-assets/
+*.psd
+
 # jetbrains setting folder
 .idea/
 
